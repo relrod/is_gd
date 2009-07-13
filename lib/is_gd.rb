@@ -19,9 +19,8 @@ class IsGd
   # Take a URL and return a minified url
   def minify(url=nil)
     unless @minified_url
-      url_to_minify = url || @original_url
-      encoded_url_to_minify = self.url_encode(url_to_minify)
-      @minified_url = open(IS_GD_URL + encoded_url_to_minify, 'r') { |file| file.read }
+      url = url || @original_url
+      @minified_url = open(IS_GD_URL + url, 'r') { |file| file.read }
     else
       @minified_url
     end    
